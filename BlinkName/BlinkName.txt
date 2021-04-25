@@ -1,0 +1,141 @@
+//define D6 a varible name to avoid writing D6 repidly
+int led1 = D6;
+
+void setup() {
+
+    pinMode(led1,OUTPUT);//setup led 1 set output
+
+}
+
+void loop() {
+	//Y
+	digitalWrite(led1,HIGH);
+    	delay(1500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+    	delay(1500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+    	delay(1500);
+   	 digitalWrite(led1,LOW);
+	delay(1500);interval for 1.5secs
+	//U
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	digitalWrite(led1,HIGH);
+    	delay(1500);
+   	digitalWrite(led1,LOW);
+	delay(1500);
+	//A
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+    	delay(1500);
+   	digitalWrite(led1,LOW);
+	delay(1500);
+	//N
+	digitalWrite(led1,HIGH);
+    	delay(1500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(1500);
+	//Z
+	digitalWrite(led1,HIGH);
+    	delay(1500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+   	delay(1500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(1500);
+	//H
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(1500);
+	//E
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(3000);
+
+	//H
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(1500);
+	//O
+	digitalWrite(led1,HIGH);
+   	delay(1500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+    	delay(1500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+    	delay(1500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	//U
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+	delay(500);
+	digitalWrite(led1,LOW);
+	delay(500);
+	digitalWrite(led1,HIGH);
+    	delay(1500);
+	digitalWrite(led1,LOW);
+	delay(1500);
+}
