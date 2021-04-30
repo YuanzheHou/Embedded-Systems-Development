@@ -1,1 +1,27 @@
+int led = D6;
+int lightSensor = A1;
 
+void setup()
+{
+    pinMode(led, OUTPUT);
+}
+
+void loop()
+{
+    digitalWrite(led, HIGH);
+
+    int LightData = analogRead(lightSensor);
+    if (LightData >= 200)
+    {
+        Particle.publish("Light_on", "Plenty light");
+    }
+    else
+    {
+        Particle.publish("Light_off", "Need light");
+    }
+    delay(5000); 
+
+
+    digitalWrite(led, LOW);
+    delay(5000); 
+}
