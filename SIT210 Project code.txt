@@ -84,5 +84,5 @@ void loop() {
         delay(500);
         Particle.publish(suitable brightness, Comforable brightness room);
     }
-    delay(30000);delay 30 seconds
+    delay(30000);
 }
