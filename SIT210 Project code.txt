@@ -1,0 +1,88 @@
+int led = A2;
+int led2 = A3;
+int led3 = A4;
+int photosensor = A0;
+int highBrightnessdata = 200;
+int lowBrightnessdata = 10;
+
+void setup() {
+    pinMode(photosensor, INPUT);
+    pinMode(led, OUTPUT);
+    pinMode(led2,OUTPUT);
+    pinMode(led3,OUTPUT);
+}
+
+void loop() {
+    int LightData = analogRead(photosensor);
+    Particle.publish(Lightdata, String(LightData));
+    if(LightData  highBrightnessdata){
+        digitalWrite(led,HIGH);
+        delay(500);
+        digitalWrite(led,LOW);
+        delay(500);
+        digitalWrite(led,HIGH);
+        delay(500);
+        digitalWrite(led,LOW);
+        delay(500);
+        digitalWrite(led,HIGH);
+        delay(500);
+        digitalWrite(led,LOW);
+        delay(500);
+        digitalWrite(led,HIGH);
+        delay(500);
+        digitalWrite(led,LOW);
+        delay(500);
+        digitalWrite(led,HIGH);
+        delay(500);
+        digitalWrite(led,LOW);
+        delay(500);
+        Particle.publish(High_brightness Warning, The brightness of the room is too high please adjust it as soon as possible.);
+    }
+    else if(LightData  lowBrightnessdata){
+        digitalWrite(led2,HIGH);
+        delay(500);
+        digitalWrite(led2,LOW);
+        delay(500);
+        digitalWrite(led2,HIGH);
+        delay(500);
+        digitalWrite(led2,LOW);
+        delay(500);
+        digitalWrite(led2,HIGH);
+        delay(500);
+        digitalWrite(led2,LOW);
+        delay(500);
+        digitalWrite(led2,HIGH);
+        delay(500);
+        digitalWrite(led2,LOW);
+        delay(500);
+        digitalWrite(led2,HIGH);
+        delay(500);
+        digitalWrite(led2,LOW);
+        delay(500);
+        Particle.publish(Low_brightness Warning, The brightness of the room is too low please adjust it as soon as possible);
+    }
+    else{
+        digitalWrite(led3,HIGH);
+        delay(500);
+        digitalWrite(led3,LOW);
+        delay(500);
+        digitalWrite(led3,HIGH);
+        delay(500);
+        digitalWrite(led3,LOW);
+        delay(500);
+        digitalWrite(led3,HIGH);
+        delay(500);
+        digitalWrite(led3,LOW);
+        delay(500);
+        digitalWrite(led3,HIGH);
+        delay(500);
+        digitalWrite(led3,LOW);
+        delay(500);
+        digitalWrite(led3,HIGH);
+        delay(500);
+        digitalWrite(led3,LOW);
+        delay(500);
+        Particle.publish(suitable brightness, Comforable brightness room);
+    }
+    delay(30000);delay 30 seconds
+}
