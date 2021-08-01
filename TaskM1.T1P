@@ -1,0 +1,25 @@
+// C++ code
+//
+int pinSensor =2;
+int pinLED =3;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(pinSensor, INPUT);
+  pinMode(pinLED, OUTPUT);
+}
+
+void loop()
+{
+  if(digitalRead(pinSensor) == HIGH){
+      digitalWrite(pinLED, HIGH);
+      Serial.println("High motion was detected");
+      delay(500);
+  } else {
+    digitalWrite(pinLED, LOW);
+    Serial.println("Low motion was detected");
+    delay(500);
+  }
+  delay(1000);
+}
