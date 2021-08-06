@@ -1,29 +1,27 @@
 // C++ code
-2 //
-3 int pinSensor =2;
-4 int pinLED =3;
-5
-6 void setup()
-7 {
-8 Serial.begin(9600);
-9 pinMode(pinLED, OUTPUT);
-10 pinMode(pinSensor, INPUT);
-11 //turn all sensors low at the start
-12 digitalWrite(pinSensor, LOW);
-13 digitalWrite(pinLED, LOW);
-14 attachInterrupt(digitalPinToInterrupt(pinSensor), Run_Action, CHANGE);//attach
-,→ interrupt
-15 }
-16
-17 void loop()
-18 {
-19 digitalWrite(pinLED, LOW);//turn off the LED while motion is not detected
-20 }
-21
-22 void Run_Action()
-23 {
-24 Serial.println("High motion was detected.");//interruption function was called
-,→ when sensor detected motion
-25 digitalWrite(pinLED, HIGH);// turn on LED when sensor detects motion
-26 delay(500);
-27 }
+//
+int pinSensor =2;
+int pinLED =3;
+
+void setup()
+{
+Serial.begin(9600);
+pinMode(pinLED, OUTPUT);
+pinMode(pinSensor, INPUT);
+//turn all sensors low at the start
+digitalWrite(pinSensor, LOW);
+digitalWrite(pinLED, LOW);
+attachInterrupt(digitalPinToInterrupt(pinSensor), Run_Action, CHANGE);//attach, interrupt
+}
+
+void loop()
+{
+digitalWrite(pinLED, LOW);//turn off the LED while motion is not detected
+}
+ 
+void Run_Action()
+{
+Serial.println("High motion was detected.");//interruption function was called, when sensor detected motion
+digitalWrite(pinLED, HIGH);// turn on LED when sensor detects motion
+delay(500);
+}
