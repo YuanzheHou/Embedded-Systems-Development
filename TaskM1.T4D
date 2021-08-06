@@ -1,0 +1,86 @@
+// C++ code
+//
+const uint16_t t1_load = 0;
+const uint16_t t1_comp = 31250;
+
+int pinLED_Blue = 4; 
+int pinLED_Red = 5; 
+int pinLED_Yellow = 6; 
+int pinLED_Green = 7; 
+
+int pinSENSOR_Green_LED = 13; 
+int pinSENSOR_Yellow_LED = 12; 
+int pinSENSOR_Red_LED = 11; 
+int pinSENSOR_Blue_LED = 10; 
+
+int state_1 = LOW;
+int state_2 = LOW;
+int state_3 = LOW;
+int state_4 = LOW;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(pinLED_Blue,OUTPUT);
+  pinMode(pinLED_Red,OUTPUT);
+  pinMode(pinLED_Yellow,OUTPUT);
+  pinMode(pinLED_Green,OUTPUT);
+  PCICR |= B00000001;
+  PCMSK0 |= B00111100; 
+  TCCR1B &= ~(1 << WGM13);
+  TCCR1B |= (1 << WGM12);
+  TCCR1B |= (1 << CS12);
+  TCCR1B &= ~(1 << CS11);
+  TCCR1B &= ~(1 << CS10);
+  TCNT1= t1_load;
+  OCR1A= t1_comp;
+  TIMSK1 = (1 << OCIE1A);
+  sei();
+}
+
+void loop()
+{
+  delay(1000);
+}
+
+ISR(PCINT0_vect)
+{
+  state_1 = digitalRead(pinSENSOR_Green_LED);
+  state_2 = digitalRead(pinSENSOR_Yellow_LED);
+  state_3 = digitalRead(pinSENSOR_Red_LED);
+  state_4 = digitalRead(pinSENSOR_Blue_LED);
+} 
+
+void timer_trigger()
+{
+  if(state_1 == HIGH)
+  {
+    Serial.println("The RIP sensor with Blue LED was detected");
+    digitalWrite(pinLED_Blue, HIGH);
+  }
+  digitalWrite(pinLED_Blue, LOW);
+  if(state_2 == HIGH)
+  {
+    Serial.println("The RIP sensor with Red LED was detected");
+    digitalWrite(pinLED_Red, HIGH);
+  }
+  digitalWrite(pinLED_Red, LOW);
+  if(state_3 == HIGH)
+  {
+    Serial.println("The RIP sensor with Yellow LED was detected");
+    digitalWrite(pinLED_Yellow, HIGH);
+  }
+  digitalWrite(pinLED_Yellow, LOW);
+  if(state_4 == HIGH)
+  {
+    Serial.println("The RIP sensor with Green LED was detected");
+    digitalWrite(pinLED_Green, HIGH);
+  }
+  digitalWrite(pinLED_Green, LOW);
+}
+
+ISR(TIMER1_COMPA_vect)
+{
+  timer_trigger();
+}
+   
